@@ -20,6 +20,10 @@ int sum(int a, int b) {
     return a + b;
 }
 
+int sub(int a, int b) {
+    return a - b;
+}
+
 int a = 0;
 
 void scope() {
@@ -58,9 +62,44 @@ void cykly() {
     } while (i < 10);
 }
 
+void stars(unsigned int a){
+    for(int i = 0; i < a; i++){
+        std::cout << "*";
+    }
+}
+
+void ctverec(unsigned int strana){
+    stars(strana);
+    std::cout << std::endl;
+    for(int i = 0; i < (strana-2); i++){
+        std::cout << "*";
+        for(int i = 0; i < (strana-2); i++){
+        std::cout << " ";
+        }
+        std::cout << "*" << std::endl;
+    }
+    stars(strana);
+    std::cout << std::endl;
+}
+
+void obdelnik(unsigned int strana_a, unsigned int strana_b){
+    stars(strana_a);
+    std::cout << std::endl;
+    for(int i = 0; i < (strana_b-2); i++){
+        std::cout << "*";
+        for(int i = 0; i < (strana_a-2); i++){
+        std::cout << " ";
+        }
+        std::cout << "*" << std::endl;
+    }
+    stars(strana_a);
+    std::cout << std::endl;
+}
+
 int main() {
-    std::cout << a << std::endl;
-    scope();
-    std::cout << a << std::endl;
+    ctverec(5);
+    std::cout << std::endl;
+    obdelnik(5, 7);
+
     return 0;
 }
