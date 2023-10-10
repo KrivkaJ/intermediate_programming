@@ -68,6 +68,12 @@ void stars(unsigned int a){
     }
 }
 
+void space(unsigned int a){
+    for(int i = 0; (i < a) && (i > (-1)); i++){
+        std::cout << " ";
+    }
+}
+
 void ctverec(unsigned int strana){
     stars(strana);
     std::cout << std::endl;
@@ -83,6 +89,13 @@ void ctverec(unsigned int strana){
 }
 
 void obdelnik(unsigned int strana_a, unsigned int strana_b){
+    for(unsigned int i = 0; i < strana_a; i++){
+        stars(strana_b);
+        std::cout << std::endl; 
+    }
+}
+
+void obdelnik_my(unsigned int strana_a, unsigned int strana_b){
     stars(strana_a);
     std::cout << std::endl;
     for(int i = 0; i < (strana_b-2); i++){
@@ -96,10 +109,41 @@ void obdelnik(unsigned int strana_a, unsigned int strana_b){
     std::cout << std::endl;
 }
 
+void pyramid_vertical(unsigned int line_count){
+    for(unsigned int i = 0; i < (line_count/2 + 1); i++){
+        stars(i+1);
+        std::cout << std::endl;
+        if(i == (line_count/2 + 1)){
+            break;
+        }
+
+    }
+    for(unsigned int i = (line_count/2); i > 0; i--){
+        stars(i);
+        std::cout << std::endl;
+    }
+
+}
+
+void pyramid_horizontal(unsigned int star_count){
+    for(unsigned int a = 0; a < (star_count/2 + 1); a++){
+        for(unsigned int i = 0; i < (star_count/2 - a); i++){
+            std::cout << " ";
+        }
+        stars(a*2 + 1);
+         std::cout << std::endl;
+    }
+}   
+
+
 int main() {
-    ctverec(5);
+    stars(5);
     std::cout << std::endl;
     obdelnik(5, 7);
+    std::cout << std::endl;
+    pyramid_vertical(7);
+    std::cout << std::endl;
+    pyramid_horizontal(7);
 
     return 0;
 }
